@@ -1,7 +1,7 @@
 import java.util.Arrays;
 
 public class FirstTask  {
-    public static void main(String[] args) {
+    public static int[] twoSum(int[] nums,int target) {
         /*
         Given an array of integers nums and an integer target,
         return indices of the two numbers such that they add up to target.
@@ -12,17 +12,15 @@ public class FirstTask  {
         Input: nums = [2,7,11,15], target = 9
         Output: [0,1]
            Explanation: Because nums[0] + nums[1] == 9, we return [0, 1].**/
-      int [] nums= {2,7,11,15};
-      int target = 9;
 
       for (int i=0;i<nums.length;i++){
           for (int j=i+1;j< nums.length;j++){
               if (nums[i]+nums[j]==target){
-                  nums= new int[]{i, j};
-                  System.out.println(Arrays.toString(nums));
+                  return new int[]{i,j};
               }
           }
-      }
+      } throw new IllegalArgumentException("no mutch found");
     }
 }
+
 
