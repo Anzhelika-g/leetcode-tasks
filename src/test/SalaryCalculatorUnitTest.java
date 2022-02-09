@@ -57,22 +57,22 @@ class SalaryCalculatorUnitTest {
     }
     @Test
     public void should_return_4_5_percent_inCaseOf_born_after_1973_with_500_000_gross_salary(){
-        double result = salaryCalculator.pensionSystemFee(500_000,true,false,false);
+        double result = salaryCalculator.pensionSystemFee(500_000,true,false);
         assertEquals(22_500,result);
     }
     @Test
     public void should_return_10_percent_minus_27_500_inCaseOf_born_after_1973_with_1_020_000_gross_salary(){
-        double result = salaryCalculator.pensionSystemFee(1_020_000,true,false,false);
+        double result = salaryCalculator.pensionSystemFee(1_020_000,true,false);
         assertEquals(74_500,result);
     }
     @Test
     public void should_return_74_500_inCaseOf_born_after_1973_with_1_020_001_gross_salary(){
-        double result = salaryCalculator.pensionSystemFee(1_020_001,true,false,false);
+        double result = salaryCalculator.pensionSystemFee(1_020_001,true,false);
         assertEquals(74_500,result);
     }
     @Test
     public void should_return_zero_inCaseOf_born_after_1973_with_0_gross_salary(){
-        double result = salaryCalculator.pensionSystemFee(0,true,false,false);
+        double result = salaryCalculator.pensionSystemFee(0,true,false);
         assertEquals(0,result);
     }
 
@@ -80,43 +80,43 @@ class SalaryCalculatorUnitTest {
 
     @Test
     public void should_return_4_5_percent_inCaseOf_voluntary_participation_before_2018_july_with_500_000_gross_salary(){
-        double result = salaryCalculator.pensionSystemFee(500_000,false,true,false);
+        double result = salaryCalculator.pensionSystemFee(500_000,false,true);
         assertEquals(22_500,result);
     }
     @Test
     public void should_return_10_percent_minus_27_500_inCaseOf_voluntary_participation_before_2018_july_with_1_020_000_gross_salary(){
-        double result = salaryCalculator.pensionSystemFee(1_020_000,false,true,false);
+        double result = salaryCalculator.pensionSystemFee(1_020_000,false,true);
         assertEquals(74_500,result);
     }
     @Test
     public void should_return_74_500_inCaseOf_voluntary_participation_before_2018_july_with_1_020_001_gross_salary(){
-        double result = salaryCalculator.pensionSystemFee(1_020_001,false,true,false);
+        double result = salaryCalculator.pensionSystemFee(1_020_001,false,true);
         assertEquals(74_500,result);
     }
     @Test
     public void should_return_zero_inCaseOf_voluntary_participation_before_2018_july_with_0_gross_salary(){
-        double result = salaryCalculator.pensionSystemFee(0,false,true,false);
+        double result = salaryCalculator.pensionSystemFee(0,false,true);
         assertEquals(0,result);
     }
 
     @Test
     public void should_return_5_percent_inCaseOf_voluntary_participation_after_2018_july_with_1_020_000_gross_salary(){
-        double result = salaryCalculator.pensionSystemFee(1_020_000,false,false,true);
+        double result = salaryCalculator.pensionSystemFee(1_020_000,false,false);
         assertEquals(51_000,result);
     }
     @Test
     public void should_return_51_000_inCaseOf_voluntary_participation_after_2018_july_with_1_020_001_gross_salary(){
-        double result = salaryCalculator.pensionSystemFee(1_020_001,false,false,true);
+        double result = salaryCalculator.pensionSystemFee(1_020_001,false,false);
         assertEquals(51_000,result);
     }
     @Test
     public void should_return_zero_inCaseOf_voluntary_participation_after_2018_july_with_0_gross_salary(){
-        double result = salaryCalculator.pensionSystemFee(0,false,false,true);
+        double result = salaryCalculator.pensionSystemFee(0,false,false);
         assertEquals(0,result);
     }
     @Test
     public void should_return_zero_inCaseOf_born_before_1973_and_isnt_joined_voluntary(){
-        double result = salaryCalculator.pensionSystemFee(100_000,false,false,false);
+        double result = salaryCalculator.pensionSystemFee(100_000,false,false);
         assertEquals(0,result);
     }
 

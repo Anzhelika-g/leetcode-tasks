@@ -1,29 +1,28 @@
 public class SalaryCalculator {
-    static double incomeTaxIs;
-    static int militaryFeeIs;
-    static double pensionSystemFeeIs;
-    static double netSalaryIs;
 
-    public static double netSalaryCalculator(double grossSalary, boolean areYouWorkingAnITCompanyWithTaxBenefits, boolean areYouBornAfter1973, boolean voluntaryParticipationBefore, boolean voluntaryParticipationAfter) {
-        if(grossSalary>0){netSalaryIs = grossSalary - incomeTax(grossSalary, areYouWorkingAnITCompanyWithTaxBenefits) - militaryFee(grossSalary) - pensionSystemFee(grossSalary, areYouBornAfter1973, voluntaryParticipationBefore, voluntaryParticipationAfter);
+    public static double netSalaryCalculator(double grossSalary, boolean areYouWorkingAnITCompanyWithTaxBenefits, boolean areYouBornAfter1973, boolean voluntaryParticipationBefore) {
+        double netSalaryIs;
+        if (grossSalary > 0) {
+            netSalaryIs = grossSalary - incomeTax(grossSalary, areYouWorkingAnITCompanyWithTaxBenefits) - militaryFee(grossSalary) - pensionSystemFee(grossSalary, areYouBornAfter1973, voluntaryParticipationBefore);
             return netSalaryIs;
-        }else {
-            return netSalaryIs=0;
+        } else {
+            return netSalaryIs = 0;
         }
     }
 
-
     public static double incomeTax(double grossSalary, boolean areYouWorkingAnITCompanyThatEnjoysTaxBenefits) {
-        if (areYouWorkingAnITCompanyThatEnjoysTaxBenefits && grossSalary>0) {
+        double incomeTaxIs;
+        if (areYouWorkingAnITCompanyThatEnjoysTaxBenefits && grossSalary > 0) {
             return incomeTaxIs = (grossSalary * 10) / 100;
-        } else if (!areYouWorkingAnITCompanyThatEnjoysTaxBenefits && grossSalary>0) {
+        } else if (!areYouWorkingAnITCompanyThatEnjoysTaxBenefits && grossSalary > 0) {
             return incomeTaxIs = (grossSalary * 21) / 100;
         } else {
-            return incomeTaxIs=0;
+            return incomeTaxIs = 0;
         }
     }
 
     public static int militaryFee(double grossSalary) {
+        int militaryFeeIs;
         if (grossSalary < 1) {
             return militaryFeeIs = 0;
         } else if (grossSalary < 100_001) {
@@ -39,7 +38,8 @@ public class SalaryCalculator {
         }
     }
 
-    public static double pensionSystemFee(double grossSalary, boolean areYouBornAfter1973, boolean voluntaryParticipationBefore, boolean voluntaryParticipationAfter) {
+    public static double pensionSystemFee(double grossSalary, boolean areYouBornAfter1973, boolean voluntaryParticipationBefore) {
+        double pensionSystemFeeIs;
         if (areYouBornAfter1973 || voluntaryParticipationBefore) {
             if (grossSalary < 500_001) {
                 pensionSystemFeeIs = (grossSalary * 4.5) / 100;
@@ -54,7 +54,7 @@ public class SalaryCalculator {
                 pensionSystemFeeIs = 74_500;
                 return pensionSystemFeeIs;
             }
-        } else if (voluntaryParticipationAfter) {
+        } else if (!voluntaryParticipationBefore) {
             if (grossSalary < 1_020_001) {
                 pensionSystemFeeIs = (grossSalary * 5) / 100;
                 return pensionSystemFeeIs;
@@ -65,13 +65,12 @@ public class SalaryCalculator {
                 pensionSystemFeeIs = 51_000;
                 return pensionSystemFeeIs;
             }
-        } else {
-            pensionSystemFeeIs = 0;
-            return pensionSystemFeeIs;
         }
-
+        return 0;
     }
 
-
 }
+
+
+
 
